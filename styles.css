@@ -27,6 +27,14 @@ body {
     margin-top: 10px;
 }
 
+.labels-form {
+    margin-top: 50px;
+}
+
+.graphs-form {
+    margin-top: 50px;
+}
+
 .select-graph form div {
     padding-top: 10px;
 }
