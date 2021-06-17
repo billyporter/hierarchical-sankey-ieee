@@ -1117,7 +1117,7 @@ function breakdownJS() {
                 if (i.source.name.length > 1 || i.target.name.length > 1) {
                     divwide.transition()
                         .duration(500)
-                        .ease(d3.easeCircle)
+                        // .ease(d3.easeCircle)
                         .style("opacity", 1.0);
                     divwide.html(`Link: ${i.source.name[0]} to ${i.target.name[0]} </br> ${i.value} students </br> ${htmlString} ${percent} of all students `)
                         .style("left", (d.pageX) + "px")
@@ -1126,7 +1126,7 @@ function breakdownJS() {
                 else {
                     div.transition()
                         .duration(500)
-                        .ease(d3.easeCircle)
+                        // .ease(d3.easeCircle)
                         .style("opacity", 1.0);
                     div.html(`Link: ${i.source.name[0]} to ${i.target.name[0]} </br> ${i.value} students </br> ${htmlString} ${percent} of all students `)
                         .style("left", (d.pageX) + "px")
@@ -1200,7 +1200,7 @@ function breakdownJS() {
          */
         d3.selectAll('.node').each(function (d) {
             d3.select(this)
-                .transition().ease(d3.easeCubic).duration(transitionDuration)
+                .transition().duration(transitionDuration)
                 .attr('y', function (n) {
                     n.y0 = newGraphPoints[n.assessment][n.name]["y0"];
                     n.y1 = newGraphPoints[n.assessment][n.name]["y1"];
@@ -1213,7 +1213,7 @@ function breakdownJS() {
         });
         d3.selectAll('.nodeText').each(function (d) {
             d3.select(this)
-                .transition().ease(d3.easeCubic).duration(transitionDuration)
+                .transition().duration(transitionDuration)
                 .attr('y', function (n) {
                     return (n.y0 + n.y1) / 2;
                 });
@@ -1238,12 +1238,12 @@ function breakdownJS() {
         /* Animate link */
         graphlink
             .transition()
-            .ease(d3.easeCubic)
+            // .ease(d3.easeCubic)
             .duration(transitionDuration)
             .attr('d', d3.sankeyLinkHorizontal())
             .style("stroke-opacity", 0.4)
             .style("stroke-width", function (n) {
-                return n.width;
+                return n.width.toString() + "px";
             })
             .on("end", function () {
                 soFar += 1;
@@ -1339,7 +1339,7 @@ function breakdownJS() {
             .transition()
             .duration(transitionDuration)
             .attr('d', d3.sankeyLinkHorizontal()).style("stroke-width", function (n) {
-                return n.width;
+                return n.width.toString() + "px";
             }).style("stroke-opacity", function (link) {
                 if (oldLinkSet.has([link.source.assessment, link.source.name, link.target.assessment, link.target.name]
                     .toString()
@@ -1347,7 +1347,7 @@ function breakdownJS() {
                     let brokeNode = brokeExam.trim().localeCompare(link.source.assessment) === 0 ? link.source.name : link.target.name;
                     let cleanNode = brokeExam.trim().localeCompare(link.target.assessment) === 0 ? link.source.name : link.target.name;
                     if (cleanNode.localeCompare(link.source.name) === 0 && cleanNode[0].localeCompare(brokeNode[1]) !== 0) {
-                        return 0.4
+                        return 0.4;
                     }
                     const direction = link.source.assessment.localeCompare(brokeExam) ? "left" : "right";
                     const gradeToInput = direction.localeCompare("left") === 0 ? link.source.name : link.target.name;
@@ -1445,8 +1445,8 @@ function breakdownJS() {
         .style("stroke", "#000000")
         .style("stroke-width", "2")
         .style("fill-opacity", 0.7)
-        .style("rx", "12")
-        .style("ry", "12")
+        .style("rx", "12px")
+        .style("ry", "12px")
         .classed("button", true)
         .on("mouseover", function (d) {
             d3.select(this)

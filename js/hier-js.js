@@ -1386,7 +1386,7 @@ function hierJS() {
 
         /* Animate link */
         graphlink.transition().duration(transitionDuration).attr('d', d3.sankeyLinkHorizontal()).style("stroke-opacity", 0.4).style("stroke-width", function (n) {
-            return n.width;
+            return n.width.toString() + "px";
         }).style("stroke", function (link) {
             return getNodeColor(link.source.name);
         }).on("end", function () {
@@ -1502,7 +1502,7 @@ function hierJS() {
             }
             return getNodeColor(link.source.name);
         }).style("stroke-width", function (n) {
-            return n.width;
+            return n.width.toString() + "px";
         }).style("stroke-opacity", function (link) {
             if (oldLinkSet.has([link.source.assessment, link.source.name, link.target.assessment, link.target.name]
                 .toString()
@@ -1600,8 +1600,8 @@ function hierJS() {
         .style("stroke", "#000000")
         .style("stroke-width", "2")
         .style("fill-opacity", 0.7)
-        .style("rx", "12")
-        .style("ry", "12")
+        .style("rx", "12px")
+        .style("ry", "12px")
         .classed("button", true)
         .on("mouseover", function (d) {
             d3.select(this)

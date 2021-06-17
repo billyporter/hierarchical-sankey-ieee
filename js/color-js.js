@@ -1171,8 +1171,8 @@ function colorJS() {
         .style("stroke", "#000000")
         .style("stroke-width", "2")
         .style("fill-opacity", 0.7)
-        .style("rx", "12")
-        .style("ry", "12")
+        .style("rx", "12px")
+        .style("ry", "12px")
         .classed("button", true)
         .on("mouseover", function (d) {
             d3.select(this)
