@@ -672,7 +672,7 @@ function hierJS() {
                     oldLinksObj['left'][firstG] = oldLinks[first][firstG][sec][secG]
                 }
             }
-            else if ((sec === brokeExam && secG === brokeGrade) || (first === brokeExam && firstG === brokeGrade)) {
+            else if ((sec.trim() === brokeExam.trim() && secG === brokeGrade) || (first === brokeExam && firstG === brokeGrade)) {
                 oldLinksSet.add(key);
                 if (brokeExam.localeCompare(first) === 0) {
                     oldLinksObj['right'][secG] = oldLinks[first][firstG][sec][secG]
@@ -716,7 +716,7 @@ function hierJS() {
                     newLinksObj['left'][firstG] = newLinks[first][firstG][sec][secG]
                 }
             }
-            else if (!isBreakdown && (!isNumber(brokeGrade)) && ((sec === brokeExam && secG[0] === brokeGrade[0]) || (first === brokeExam && firstG[0] === brokeGrade[0]))) {
+            else if (!isBreakdown && (!isNumber(brokeGrade)) && ((sec === brokeExam.trim() && secG[0] === brokeGrade[0]) || (first === brokeExam && firstG[0] === brokeGrade[0]))) {
                 newLinksSet.add(key);
                 if (brokeExam.localeCompare(first) === 0) {
                     newLinksObj['right'][secG] = newLinks[first][firstG][sec][secG]
@@ -725,7 +725,7 @@ function hierJS() {
                     newLinksObj['left'][firstG] = newLinks[first][firstG][sec][secG]
                 }
             }
-            else if (!isBreakdown && (isNumber(brokeGrade)) && ((sec === brokeExam && secG === brokeGrade) || (first === brokeExam && firstG === brokeGrade))) {
+            else if (!isBreakdown && (isNumber(brokeGrade)) && ((sec === brokeExam.trim() && secG === brokeGrade) || (first === brokeExam && firstG === brokeGrade))) {
                 newLinksSet.add(key);
                 if (brokeExam.localeCompare(first) === 0) {
                     newLinksObj['right'][secG] = newLinks[first][firstG][sec][secG]
@@ -734,7 +734,7 @@ function hierJS() {
                     newLinksObj['left'][firstG] = newLinks[first][firstG][sec][secG]
                 }
             }
-            else if (isBreakdown && (sec === brokeExam && secG === brokeGrade) || (first === brokeExam && firstG === brokeGrade)) {
+            else if (isBreakdown && (sec === brokeExam.trim() && secG === brokeGrade) || (first === brokeExam && firstG === brokeGrade)) {
                 newLinksSet.add(key);
                 if (brokeExam.localeCompare(first) === 0) {
                     newLinksObj['right'][secG] = newLinks[first][firstG][sec][secG]
